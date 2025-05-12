@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+     <link rel="stylesheet" type="text/css" href="mapa.css">
+     <link rel="stylesheet" type="text/css" href="Leaflet-MiniMap-master/Leaflet-MiniMap-master/dist/Control.MiniMap.min.css">
+
+    <title>Áreas Protegidas</title>
+    <h1>Mapa Interactivo de Áreas Protegidas</h1>
+
+    <select name="select-location" id="select-location">
+        <option value="-1">Seleccione un Área</option>
+        <option value="0.755278, -77.9052778">Reserva Ecológica-El Ángel</option>
+        <option value="0.477778, -77.7661112">Coordillera Oriental-del Carchi</option>
+        <option value="0.5375, -77.6291666">Reserva La-Bonita</option>
+        <option value="1.2303454, -78.7409914">RVS-La chiquita</option>
+        <option value="1.2969992, -78.9118410">Reserva Manglares Cayapa Mataje</option>
+        <option value="-0.3261928, -75.7851419">RPF-Cuyabeno</option>
+        <option value="-0.5592394, -75.7692894">Ramsar-Complejo de Humedales Cuyabeno Lagartococha Yasuní</option>
+        <option value="-0.4013561, -76.5902442">Reserva Biológica-Limoncocha</option>
+        <option value="-0.7616905, -76.0545317">Parque-Nacional Yasuní</option>
+        <option value="0.9723474, -79.6426336">RVS- Manglares Estuario del Río Esmeraldas</option>
+        <option value="0.6368992, -79.1830420">RVS-El Pambilar</option>
+        <option value="0.5661698, -78.6776443">Parque Nacional-Cotacachi Cayapas</option>
+        <option value="0.2605500, -78.1817741">Área Protegida Áutonoma Descentralizada-Taita Imbabura</option>
+        <option value="0.3359028, -78.4372346">APV-Neblina Norte</option>
+        <option value="0.3011775, -78.4699448">APV-Neblina Sur</option>
+        <option value="0.2883422, -78.4479164">APV-Neblina Piedra</option>
+        <option value="0.1310204, -78.8967759">RVS-Mashpi Tayra</option>
+        <option value="0.0195174, -78.6888163">APV-Bellavista</option>
+        <option value="0.0538929, -78.4978607">Reserva Geobotánica-Pululahua</option>
+        <option value="0.0663590, -77.8313365">Parque-Nacional Cayambe Coca</option>
+        <option value="0.7574669, -80.1645414">Reserva-Marina Galera San Francisco</option>
+        <option value="0.4809303, -80.1275092">RVS-Manglares Estuario del Río Muisne</option>
+        <option value="0.4168147, -79.8052058">Reserva-Ecológica Mache Chindul</option>
+        <option value="-0.3871187, -80.4919516">Reserva-Marina Puerto Cabuyal-Punta San Clemente</option>
+        <option value="-0.6408476, -80.3740295">RVS-Islas Corazon y Las Islas Fragata</option>
+        <option value="-1.1366093, -80.9176992">RVS-Pacoche</option>
+        <option value="-1.4665975, -80.9489348">Reserva-Marina Cantagallo-Machalilla</option>
+        <option value="-1.4816879, -80.7813759">Parque-Nacional Machalilla</option>
+        <option value="-1.8416690, -81.0583335">Reserva-Marina Bajo Cope</option>
+        <option value="-1.9603320, -80.7803297">Reserva-Marina El Pelado</option>
+        <option value="-2.2191133, -81.0013009">RPF-Puntilla de Santa Elena</option>
+        <option value="-2.2115817, -80.1294400">Área Nacional de Recreación-Parque Lago</option>
+        <option value="-2.0959616, -79.9009664">ANR-Los Samanes</option>
+        <option value="-2.2206973, -79.8532962">ANR-Isla Santay</option>
+        <option value="-2.2807944, -79.9461142">RPF-Manglares el Salado</option>
+        <option value="-2.4909951, -79.7314745">Reserva-Ecológica Manglares Churute</option>
+        <option value="-2.6538541, -80.1448330">RVS-Manglares el Morro</option>
+        <option value="-2.6821509, -80.3633992">ANR-Playas de Villamil </option>
+        <option value="-3.1740035, -80.4376823">Reserva-Marina Isla Santa Clara</option>
+        <option value="-3.5038260, -79.9960778">Ramsar-La Tembladera</option>
+        <option value="-3.5405258, -80.1473595">Reserva-Ecologica Arenillas</option>
+        <option value="-4.0527493, -80.4362195">APV-Cazaderos</option>
+        <option value="-4.6506927, -79.3186735">Parque-Nacional Yacuri</option>
+        <option value="-4.5713944, -78.7780934">Reserca-Biológica Cerro Plateado</option>
+        <option value="-4.2744913, -79.0067458">Parque-Nacional Podocarpus</option>
+        <option value="-3.8155265, -78.5373281">RVS-El Zarza</option>
+        <option value="-3.7917954, -79.9850557">Área protegida Comunitaria-Tiwi Nunka</option>
+        <option value="-3.6255342, -79.0599207">APAD-Yacuambi</option>
+        <option value="-3.5488654, -79.0953977">APC-Marcos Perez de Castilla</option>
+        <option value="-3.4534455, -78.3862183">Reserca-Biológica El Quimi</option>
+        <option value="-3.1951844, -78.2135868">Kawsak Sacha-Selva Viviente-Territorio del Pueblo Shuar Arutam</option>
+        <option value="-3.4673453, -78.2507428">Reserca-Biológica El Condor</option>
+        <option value="-3.2788746, -78.8717567">APC-Tambillo</option>
+        <option value="-3.0927581, -78.5979437">Área Ecológica de Conservación Municipa-Siete Iglesias</option>
+        <option value="-2.7689980, -78.5204220">Parque-Nacional Río Negro Sopladora</option>
+        <option value="-3.0138791, -79.2367729">ANR-Quimsacocha</option>
+        <option value="-2.8762390, -79.1285985">APAD-Mazan</option>
+        <option value="-2.8470669, -79.2425850">Parque-Nacional Cajas</option>
+        <option value="-2.7930563, -79.1336667">APAD-Curuquingue Gallocantana</option>
+        <option value="-2.1084368, -78.3990164">Parque-Nacional Sangay</option>
+        <option value="-2.0799912, -78.4729465">APV-Ichubamba Yasepan</option>
+        <option value="-1.6692805, -79.3369224">RVS-Samama Mumbes</option>
+        <option value="-1.4289631, -78.8441803">RPF-Chimborazo</option>
+        <option value="-0.7167111, -78.9446429">Reserva-Ecológica Los Illinizas</option>
+        <option value="-0.6142840, -78.5688287">ANR-El Boliche</option>
+        <option value="-0.6481162, -78.4503585">Parque-Nacional Cotopaxi</option>
+        <option value="-0.4460087, -78.4990082">RVS-Pasochoa</option>
+        <option value="-0.5923567, -78.0392992">Parque-Nacional Antisana</option>
+        <option value="-0.8801744, -78.0508849">Reserca-Biológica Colonso Chalupas</option>
+        <option value="-1.1356628, -78.2409837">Parque-Nacional Llanganates</option>
+        <option value="-1.3667231, -78.1524032">APV-Zuñag</option>
+        <option value="-1.4710303, -78.3228107">APV-Candelaria</option>
+        <option value="-0.4279478, -77.5547514">Parque-Nacional Sumaco Napo-Galeras</option>
+        <option value="-0.3186778, -77.3165663">Reserva-Ecológica Cofan Bermejo</option>
+        <option value="2.3277531, -90.5944931">Reserva-Marina Hermandad</option>
+        <option value="-0.0490710, -90.7722135">Reserva-Marina Galápagos</option>
+        <option value="-1.7962707, -77.3405979">Kawsak Sacha–Selva Viviente-Pueblo Originario Kichwa de Sarayaku </option>
+    </select>
+</head>
+<body> 
+
+<div id="map"></div>
+
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+<script src="Leaflet-MiniMap-master/Leaflet-MiniMap-master/dist/Control.MiniMap.min.js"></script>
+<script src="layers/Areas.js"></script>
+<script src="mapa.js"></script>
+
+</body> 
+</html>
